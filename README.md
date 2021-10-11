@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# LoveForTV - Jose Abel Ramirez Frontany and ThankGod Richard
+# Love4TV - Jose Abel Ramirez Frontany and ThankGod Richard
 
 <!-- ![screenshot](./app_screenshot.png) -->
 
@@ -47,7 +47,6 @@ To start the webpack-dev-server, run the following command:
 
 <!-- - [live-version]() -->
 
-
 ### Tests with Jest framework
 
 To run the tests files for Jest framework type the following
@@ -55,7 +54,6 @@ To run the tests files for Jest framework type the following
 ```
     npm test
 ```
-
 
 ### Linters
 
@@ -65,7 +63,7 @@ To run the Javascript linters type the following
     npx eslint .
 ```
 
-To run the  HTML linters type the following
+To run the HTML linters type the following
 
 ```
     npx hint .

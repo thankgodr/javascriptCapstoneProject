@@ -1,8 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-#  - Jose Abel Ramirez Frontany and ThankGod Richard
-
-
+# LoveForTV - Jose Abel Ramirez Frontany and ThankGod Richard
 
 <!-- ![screenshot](./app_screenshot.png) -->
 
@@ -12,7 +10,8 @@
 - CSS
 - JavaScript
 - Webpack
-- 
+- Babel
+- Jest
 
 ## Getting Started
 
@@ -48,8 +47,6 @@ To start the webpack-dev-server, run the following command:
 
 - [live-version with github pages](https://jose-abel.github.io/todo-list/)
 
-
-
 ### Tests
 
 Javascript linters
@@ -70,6 +67,7 @@ CSS linters
 ```
     npx stylelint "**/*.{css,scss}"
 ```
+
 ## Authors:
 
 ### Author: Jose Abel Ramirez Frontany\*\*
@@ -78,8 +76,9 @@ CSS linters
 - Linkedin: [Jose Abel Ramirez Frontany](https://www.linkedin.com/in/jose-abel-ramirez-frontany-7674a842/)
 
 ### Author: Leonardo Lopes da Paz\*\*
+
 - Github: [ThankGod Richard](http://github.com/thankgodr)
-- Linkedin: [ThankGod Richard](http://linkedin.com/in/thankgodr )
+- Linkedin: [ThankGod Richard](http://linkedin.com/in/thankgodr)
 
 ## 🤝 Contributing
 

@@ -45,24 +45,34 @@ To start the webpack-dev-server, run the following command:
 
 ### Live Demo Server
 
-- [live-version with github pages](https://jose-abel.github.io/todo-list/)
+<!-- - [live-version]() -->
 
-### Tests
 
-Javascript linters
+### Tests with Jest framework
+
+To run the tests files for Jest framework type the following
+
+```
+    npm test
+```
+
+
+### Linters
+
+To run the Javascript linters type the following
 
 ```
     npx eslint .
 ```
 
-HTML linters
+To run the  HTML linters type the following
 
 ```
     npx hint .
 
 ```
 
-CSS linters
+To run the CSS linters type the following
 
 ```
     npx stylelint "**/*.{css,scss}"

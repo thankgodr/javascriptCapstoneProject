@@ -53,7 +53,7 @@ export default class ShowController {
 
         document.getElementById('cardHolder').appendChild(divHolder);
       });
-      start = start + 1;
+      start += 1;
     }
   }
 }

@@ -7,3 +7,8 @@
 .card {
   min-width: 300px;
 }
+
+.card-img {
+  max-height: 241px;
+  min-width: 241px;
+}

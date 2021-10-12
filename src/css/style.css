@@ -1,8 +1,9 @@
 .navbar-nav {
   position: absolute;
   left: 50%;
-  transform: translatex(-50%);
+  transform: translateX(-50%);
 }
+
 .card {
   min-width: 300px;
 }

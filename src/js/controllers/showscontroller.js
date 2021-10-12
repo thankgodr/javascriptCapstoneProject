@@ -8,7 +8,7 @@ export default class ShowController {
   fetchRange(start = 1, end = 50) {
     const networkCall = new NetworkCall();
     while (start < end) {
-      const response = networkCall.getRequest('shows/' + start);
+      const response = networkCall.getRequest(`shows/${start}`);
       response.then((result) => {
         const movie = JSON.parse(result);
         this.movieArray.push();
@@ -53,7 +53,7 @@ export default class ShowController {
 
         document.getElementById('cardHolder').appendChild(divHolder);
       });
-      start++;
+      start = start + 1;
     }
   }
 }

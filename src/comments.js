@@ -15,72 +15,49 @@ class CommentsPage {
     this.comments.push(comments);
   }
 
-	createUI() {
-		const commentPopupSection = document.createElement('section');
+	render() {
+		const template = `
+			<div class="comments-section">
+        <img src="${this.image}">
 
-		// Header
-		const img = document.createElement('img');
+        <h1>${this.showName}</h1>
 
-		const h1 = document.createElement('h1');
+        <div>
+          <h2>Comments ${this.comments.length}</h2>
 
-		// Comments
-		const divComments = document.createElement('div');
+          <div id="comments-box">
+          
+          </div>
 
-		const h2Comments = document.createElement('h2');
+        </div>
 
-		const divCommentsContainer = document.createElement('div');
+        <div>
+          <h2>Add a comment</h2>
 
-		// Add a comment
-		const divAddComment = document.createElement('div');
+          <input type="text" placeholder="Your name">
 
-		const h2AddComment = document.createElement('h2');
+          <textarea placeholder="Your comments"></textarea>
 
-		const nameInput = document.createElement('input');
+          <button type="button">Comment</button>
+        </div>
 
-		const textArea = document.createElement('textarea');
+			</div>`;
 
-		const button = document.createElement('button');
+    const commentsBox = document.getElementById('comments-box');
 
-
-		// Adding content
-		img.src = this.image;
-
-		h1.innerHTML = `${this.showName}`;
-
-		h2Comments.innerHTML = `Comments ${this.commentsAmount}`;
-
-		h2AddComment.innerHTML = "Add a comment";
-
-		nameInput.placeholder = "Your name";
-
-		textArea.placeholder = "Your comments";
-
-		button.innerHTML = "Comment";
-
-
-
-
-		commentPopupSection.appendChild(img);
-
-		commentPopupSection.appendChild(h1);
-
-    commentPopupSection.appendChild(divComments);
-
-    divComments.appendChild(h2Comments);
-    
-
-
-    this.comments
-		for(let i = 0; i < commentsAmount; i++) {
-      const comment = document.createElement('p');
+		for(let i = 0; i < this.comments.length; i++) {
+      const commentP = document.createElement('p');
 
       const commentDate = document.createElement('span');
 
       const commentContent = document.createElement('span');
 
-      commentDate.innerHTML = ``
+      commentDate.innerHTML = ``;
+      commentContent.innerHTML = `${username} ${comment}`;
 
-			divCommentsContainer.appendChild()
+      commentP.appendChild(commentDate);
+      commentP.appendChild(commentContent);
+			commentsBox.appendChild(commentP);
 		}
 	}
 

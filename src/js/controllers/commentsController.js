@@ -50,11 +50,16 @@ class CommentsPage {
     summaryContainer.innerHTML = this.show.summary;
 
     const genresDiv = document.getElementById('genres');
-    this.show.genres.forEach((genre) => {
-      const span = document.createElement('span');
-      span.innerHTML = `<b>Genres</b>: ${genre} `;
-      genresDiv.appendChild(span);
+    const span = document.createElement('span');
+    span.innerHTML = '<b>Genre: <b>';
+    this.show.genres.forEach((genre, index) => {
+      span.innerHTML += `${genre}`;
+
+      if (index !== this.show.genres.length - 1) {
+        span.innerHTML += ', ';
+      }
     });
+    genresDiv.appendChild(span);
   }
 }
 

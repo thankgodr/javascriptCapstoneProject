@@ -7,7 +7,7 @@ export default class ShowController {
     this.likesControllers = new LikesControllers();
   }
 
-  fetchRange(start = 1, end = 50) {
+  fetchRange = (start = 1, end = 50) => {
     const networkCall = new NetworkCall();
     while (start < end) {
       const response = networkCall.getRequest(`shows/${start}`);
@@ -57,18 +57,19 @@ export default class ShowController {
         </div>`;
           }
           this.likesControllers.getLikes().then((res) => {
-            let obj = res.find((o) => o.item_id === movie.id);
+            const obj = res.find((o) => o.item_id === movie.id);
             if (obj != null) {
               const likeCount = document.getElementById(`likes${movie.id}_count`);
-              const [currentLike, keep] = likeCount.innerHTML.split(' ');
-              let intVal = parseInt(obj.likes);
+              const [, keep] = likeCount.innerHTML.split(' ');
+
+              const intVal = parseInt(obj.likes, 10);
               likeCount.innerHTML = `${intVal} ${keep}`;
             }
           });
 
           document.getElementById('cardHolder').appendChild(divHolder);
           const likeLiterner = document.getElementById(`likes${movie.id}`);
-          likeLiterner.addEventListener('click', (e) => {
+          likeLiterner.addEventListener('click', () => {
             this.sendLikes(movie.id, `likes${movie.id}`);
           });
         })
@@ -79,20 +80,20 @@ export default class ShowController {
       start += 1;
     }
     new LikesControllers().getLikes();
-  }
+  };
 
-  sendLikes(movieID, id) {
+  sendLikes = (movieID, id) => {
     const likeController = new LikesControllers();
     const response = likeController.sendLike(movieID);
     response
-      .then((res) => {
+      .then(() => {
         const likeCount = document.getElementById(`${id}_count`);
         const [currentLike, keep] = likeCount.innerHTML.split(' ');
-        let intVal = parseInt(currentLike);
+        const intVal = parseInt(currentLike, 10);
         likeCount.innerHTML = `${intVal + 1} ${keep}`;
       })
       .catch((er) => {
         console.log(er);
       });
-  }
+  };
 }

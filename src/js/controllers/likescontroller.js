@@ -1,13 +1,15 @@
-import NetworkCall from '../helpers/networkcall';
+import NetworkCall from '../helpers/networkcall.js';
 
 export default class LikesControllers {
   #appid = 'f2Nvc7oVyb6NlmnKre2d';
+
   #notionUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/';
 
   constructor() {
     this.getLikes();
   }
-  sendLike(movieID) {
+
+  sendLike = (movieID) => {
     const networkCall = new NetworkCall(this.#notionUrl);
     return networkCall
       .postRequest(
@@ -18,9 +20,9 @@ export default class LikesControllers {
       )
       .then((outcome) => outcome)
       .catch((error) => error);
-  }
+  };
 
-  getLikes() {
+  getLikes = () => {
     const networkCall = new NetworkCall(this.#notionUrl);
     return networkCall
       .getRequestNoCors(`/apps/${this.#appid}/likes`)
@@ -29,5 +31,5 @@ export default class LikesControllers {
         return res;
       })
       .catch((err) => err);
-  }
+  };
 }

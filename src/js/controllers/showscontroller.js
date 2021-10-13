@@ -52,7 +52,6 @@ export default class ShowController {
           </div>
         </div>`;
         }
-        
 
         document.getElementById('cardHolder').appendChild(divHolder);
       }).catch((error) => {

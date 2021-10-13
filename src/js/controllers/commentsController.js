@@ -1,10 +1,8 @@
-import NetworkCall from '../helpers/networkcall';
-
 class CommentsPage {
   URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/';
 
   constructor(shows, btn) {
-    this.show = shows.moviesArray.filter((show) => show.id === +btn.id)[0];
+    [this.show] = shows.moviesArray.filter((show) => show.id === +btn.id);
   }
 
   render() {
@@ -44,22 +42,20 @@ class CommentsPage {
 
       </div>`;
 
-      const commentsPage = document.getElementById('commentsPage');
-      const modalBody = commentsPage.querySelector('.modal-body');
-      modalBody.innerHTML = template;
+    const commentsPage = document.getElementById('commentsPage');
+    const modalBody = commentsPage.querySelector('.modal-body');
+    modalBody.innerHTML = template;
 
-      const summaryContainer = document.getElementById('summary-container');
-      summaryContainer.innerHTML = this.show.summary;
+    const summaryContainer = document.getElementById('summary-container');
+    summaryContainer.innerHTML = this.show.summary;
 
-      const genresDiv = document.getElementById('genres');
-      this.show.genres.forEach((genre) => {
-        const span = document.createElement('span');
-        span.innerHTML = `<b>Genres</b>: ${genre} `;
-        genresDiv.appendChild(span);
-      });
+    const genresDiv = document.getElementById('genres');
+    this.show.genres.forEach((genre) => {
+      const span = document.createElement('span');
+      span.innerHTML = `<b>Genres</b>: ${genre} `;
+      genresDiv.appendChild(span);
+    });
   }
 }
 
 export default CommentsPage;
-
-

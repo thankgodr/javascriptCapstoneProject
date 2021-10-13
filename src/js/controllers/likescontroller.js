@@ -16,7 +16,7 @@ export default class LikesControllers {
         {
           item_id: movieID,
         },
-        `apps/${this.#appid}/likes/`
+        `apps/${this.#appid}/likes/`,
       )
       .then((outcome) => outcome)
       .catch((error) => error);

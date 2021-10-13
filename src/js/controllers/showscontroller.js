@@ -92,8 +92,6 @@ export default class ShowController {
         const intVal = parseInt(currentLike, 10);
         likeCount.innerHTML = `${intVal + 1} ${keep}`;
       })
-      .catch((er) => {
-        console.log(er);
-      });
+      .catch((er) => er);
   };
 }

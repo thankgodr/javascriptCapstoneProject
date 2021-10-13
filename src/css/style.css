@@ -22,3 +22,16 @@ body {
   max-height: 241px;
   min-width: 241px;
 }
+
+.popup-section {
+  margin: 0 auto;
+}
+
+.add-comment-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.commentPopup-button {
+  width: 30%;
+}

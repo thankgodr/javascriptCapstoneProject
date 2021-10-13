@@ -6,12 +6,14 @@ import CommentsController from './js/controllers/commentsController';
 
 const shows = new ShowController([]);
 
+const start = 30;
 
+const end = 100;
 
-shows.fetchRange(30, 100);
+shows.fetchRange(start, end);
 
 function commentPopupHandler() {
-  if (shows.moviesArray.length) {
+  if (shows.moviesArray.length === (end - start)) {
     const allCommentButtons = document.querySelectorAll('.comment-button');
 
     allCommentButtons.forEach((button) => {

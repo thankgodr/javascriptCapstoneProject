@@ -1,3 +1,13 @@
+* {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  box-sizing: border-box;
+}
+
 .navbar-nav {
   position: absolute;
   left: 50%;
@@ -11,4 +21,17 @@
 .card-img {
   max-height: 241px;
   min-width: 241px;
+}
+
+.popup-section {
+  margin: 0 auto;
+}
+
+.add-comment-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.commentPopup-button {
+  width: 30%;
 }

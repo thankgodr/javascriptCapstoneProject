@@ -1,8 +1,8 @@
 import './css/style.css';
 
-import ShowController from './js/controllers/showscontroller';
+import ShowController from './js/controllers/showscontroller.js';
 
-import CommentsController from './js/controllers/commentsController';
+import CommentsController from './js/controllers/commentsController.js';
 
 const shows = new ShowController([]);
 
@@ -17,17 +17,14 @@ function commentPopupHandler() {
     const allCommentButtons = document.querySelectorAll('.comment-button');
 
     allCommentButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-            const commentPopup = new CommentsController(shows, button);
-            commentPopup.render();
-        });
+      button.addEventListener('click', () => {
+        const commentPopup = new CommentsController(shows, button);
+        commentPopup.render();
+      });
     });
-
   } else {
     setTimeout(commentPopupHandler, 15);
   }
 }
 
 commentPopupHandler();
-
-

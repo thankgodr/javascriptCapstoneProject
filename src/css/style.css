@@ -1,3 +1,13 @@
+* {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  box-sizing: border-box;
+}
+
 .navbar-nav {
   position: absolute;
   left: 50%;

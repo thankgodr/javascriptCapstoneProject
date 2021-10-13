@@ -6,9 +6,9 @@ import CommentsController from './js/controllers/commentsController.js';
 
 const shows = new ShowController([]);
 
-const start = 30;
+const start = 1;
 
-const end = 100;
+const end = 30;
 
 shows.fetchRange(start, end);
 

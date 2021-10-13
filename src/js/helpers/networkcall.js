@@ -21,4 +21,24 @@ export default class NetworkCall {
     const json = returnJson ? await response.json() : await response.text();
     return json;
   };
+
+  getRequestNoCors = async (pathUrl = '') => {
+  
+   return fetch(
+    'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/f2Nvc7oVyb6NlmnKre2d/likes'
+   )
+   .then((response) => response.json())
+   .catch((err) => err);
+ };
+
+  getRequestWithOptions(queryParams) {
+  const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+
+    return fetch(this.baseUrl + queryParams, requestOptions)
+     .then(response => response.json())
+     .catch(error => console.log('error', error));
+  }
 }

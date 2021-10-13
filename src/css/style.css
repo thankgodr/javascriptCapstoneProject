@@ -32,6 +32,30 @@ body {
   flex-direction: column;
 }
 
+.summary-container {
+  display: flex;
+  flex-direction: row;
+}
+
 .commentPopup-button {
   width: 30%;
 }
+
+.add-comment-form {
+  display: flex;
+  flex-direction: column;
+
+}
+
+#user-element {
+  margin-bottom: 1rem;
+  width: 20rem;
+  height: 3rem;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+#comment-message {
+  margin-bottom: 10px;
+}
+

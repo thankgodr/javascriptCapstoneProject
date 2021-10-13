@@ -38,11 +38,11 @@ i
 
           <form class="form add-comment-form">
 		  
-	    <input type="text" placeholder="Your name" id="user-element" class="input-elements form-control">
+	        <input type="text" placeholder="Your name" id="user-element" class="input-elements form-control">
 
             <textarea placeholder="Your comments" id="comment-message" class="form-control" rows="5"></textarea>
 
-            <button type="button" class="btn btn-primary commentPopup-button" onclick="this.createComment()">Comment</button>
+            <button type="button" class="btn btn-primary commentPopup-button" onclick="createComment()">Comment</button>
 		  
           </form>
         
@@ -101,16 +101,12 @@ i
 	
 	if(userInput.value && commentInput.value) {
 	  const response = this.networkCall.postRequest(
-	  {
-       	    "item_id": this.show.id,
-            "username": userInput.value,
-            "comment": commentInput.value
-          }, this.URL).then((result) => {
-		this.getAllComments();		
-	}).catch(err => {
-	    throw new Error(err);
-	})
-       }
+	    {
+       	  "item_id": this.show.id,
+          "username": userInput.value,
+          "comment": commentInput.value
+        }, this.URL)
+    }
   }
 }
 

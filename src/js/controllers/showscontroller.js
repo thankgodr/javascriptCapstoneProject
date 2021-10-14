@@ -2,6 +2,8 @@ import NetworkCall from '../helpers/networkcall.js';
 import LikesControllers from './likescontroller.js';
 
 export default class ShowController {
+  totatShows = 0;
+
   constructor(moviesArray) {
     this.moviesArray = moviesArray;
     this.likesControllers = new LikesControllers();
@@ -17,7 +19,7 @@ export default class ShowController {
           this.moviesArray.push(movie);
 
           const divHolder = document.createElement('div');
-          divHolder.className = 'col-md-4 mt-2';
+          divHolder.className = 'col-md-4 col-lg-4 mt-2';
           if (movie.image) {
             divHolder.innerHTML = `<div class="card">
           <div class="card-body">
@@ -33,7 +35,7 @@ export default class ShowController {
           </div>
           <div class="card-body bg-light text-center">
             <div class="mb-2 row">
-              <div class="col-md-6">
+              <div class="col-md-6 nameDiv">
                 <h6 class="font-weight-semibold mb-2">
                   <a href="#" class="text-default mb-2" data-abc="true">${movie.name}</a>
                 </h6>
@@ -68,6 +70,7 @@ export default class ShowController {
           });
 
           document.getElementById('cardHolder').appendChild(divHolder);
+          this.countShows();
           const likeLiterner = document.getElementById(`likes${movie.id}`);
           likeLiterner.addEventListener('click', () => {
             this.sendLikes(movie.id, `likes${movie.id}`);
@@ -94,4 +97,10 @@ export default class ShowController {
       })
       .catch((er) => er);
   };
+
+  countShows() {
+    this.totatShows += 1;
+    const previousTotal = document.getElementById('totalShowsCount');
+    previousTotal.innerHTML = this.totatShows;
+  }
 }

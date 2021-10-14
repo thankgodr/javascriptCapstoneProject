@@ -2,7 +2,7 @@ import NetworkCall from '../helpers/networkcall.js';
 
 class CommentsPage {
   URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/f2Nvc7oVyb6NlmnKre2d/comments';
-i
+
   constructor(shows, btn) {
     [this.show] = shows.moviesArray.filter((show) => show.id === +btn.id);
     this.networkCall = new NetworkCall(this.URL);

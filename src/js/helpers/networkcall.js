@@ -23,13 +23,13 @@ export default class NetworkCall {
   };
 
   getRequestNoCors = async (pathUrl = '') => {
-  
-   return fetch(
-    'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/f2Nvc7oVyb6NlmnKre2d/likes'
-   )
-   .then((response) => response.json())
-   .catch((err) => err);
- };
+    pathUrl.split('');
+    return fetch(
+      'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/f2Nvc7oVyb6NlmnKre2d/likes',
+    )
+      .then((response) => response.json())
+      .catch((err) => err);
+  };
 
   getRequestWithOptions(queryParams) {
   const requestOptions = {

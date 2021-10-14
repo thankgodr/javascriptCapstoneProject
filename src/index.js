@@ -13,7 +13,7 @@ const end = 30;
 shows.fetchRange(start, end);
 
 function commentPopupHandler() {
-  if (shows.moviesArray.length === (end - start)) {
+  if (shows.moviesArray.length === end - start) {
     const allCommentButtons = document.querySelectorAll('.comment-button');
 
     allCommentButtons.forEach((button) => {

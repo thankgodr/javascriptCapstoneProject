@@ -88,7 +88,7 @@ class CommentsPage {
            `;
           commentsBox.innerHTML += `${template}`;
         });
-		 }
+      }
     }).catch((error) => {
       throw new Error(error);
     });
@@ -96,10 +96,10 @@ class CommentsPage {
 
   sendComment() {
     const userInput = document.getElementById('user-element');
-  	const commentInput = document.getElementById('comment-message');
+    const commentInput = document.getElementById('comment-message');
 
     if (userInput.value && commentInput.value) {
-	  this.networkCall.postRequestWithOptions(this.show.id, userInput.value, commentInput.value)
+      this.networkCall.postRequestWithOptions(this.show.id, userInput.value, commentInput.value)
         .then(() => {
           userInput.value = '';
 

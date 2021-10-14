@@ -44,7 +44,6 @@ body {
 .add-comment-form {
   display: flex;
   flex-direction: column;
-
 }
 
 #user-element {
@@ -58,4 +57,3 @@ body {
 #comment-message {
   margin-bottom: 10px;
 }
-

@@ -1,7 +1,7 @@
 import NetworkCall from '../helpers/networkcall.js';
 
 export default class LikesControllers {
-  #appid = 'f2Nvc7oVyb6NlmnKre2d';
+  #appid = 'rVSJynvv1XHTg5vxDiSj';
 
   #notionUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/';
 

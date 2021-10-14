@@ -1,7 +1,7 @@
 import NetworkCall from '../helpers/networkcall.js';
 
 class CommentsPage {
-  URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/f2Nvc7oVyb6NlmnKre2d/comments';
+  URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/rVSJynvv1XHTg5vxDiSj/comments';
 
   constructor(shows, btn) {
     [this.show] = shows.moviesArray.filter((show) => show.id === +btn.id);
@@ -19,7 +19,7 @@ class CommentsPage {
             <span class="show-status"><b>Status:</b> ${this.show.status}</span>
             <div id="genres"></div>
             <span class="rating"><b>Rating:</b> ${this.show.rating.average}</span>
-	    ${this.show.summary}
+	        ${this.show.summary}
 	    
           </div>
         </div>
@@ -42,11 +42,11 @@ class CommentsPage {
 
             <textarea placeholder="Your comments" id="comment-message" class="form-control" rows="5"></textarea>
 
-            <button type="button" class="btn btn-primary commentPopup-button" onclick="createComment()">Comment</button>
+            <button type="button" class="btn btn-primary commentPopup-button">Comment</button>
 		  
           </form>
         
-	</div>
+	    </div>
 
       </div>`;
 
@@ -73,39 +73,47 @@ class CommentsPage {
 
   getAllComments() {
 	const commentsBox = document.getElementById("comments-box");
+    
+    commentsBox.innerHTML = "";
 
 	const response = this.networkCall.getRequestWithOptions(`?item_id=${this.show.id}`);
 
 	response.then((result) => {
 
 		if(result.length){
-		  const [show] = result;
-		  const template = `
-			<p>
-			 <span>${show.creation_date} </span>
-			 <span>${show.username} </span>
-			 <span>${show.comment} </span>
-			</p>
-		  `;
+		  const comments = result;
 
-		  commentsBox.innerHTML += `${template}`;
-		}
+          comments.forEach((comment) => {
+             const template = `
+			  <p>
+			   <span>${comment.creation_date} </span>
+			   <span>${comment.username} </span>
+			   <span>${comment.comment} </span>
+			  </p>
+		      `;
+
+		     commentsBox.innerHTML += `${template}`;
+
+          })
+		 }
 	}).catch(error => {
 		throw new Error(error);
     })
   }
 
-  createComment() {
+  sendComment() {
 	const userInput = document.getElementById('user-element');
   	const commentInput = document.getElementById('comment-message');
 	
 	if(userInput.value && commentInput.value) {
-	  const response = this.networkCall.postRequest(
-	    {
-       	  "item_id": this.show.id,
-          "username": userInput.value,
-          "comment": commentInput.value
-        }, this.URL)
+	  const response = this.networkCall.postRequestWithOptions(this.show.id, userInput.value, commentInput.value)
+      .then(result => {
+          userInput.value = "";
+           
+          commentInput.value = "";
+
+          this.getAllComments();
+      }) 
     }
   }
 }

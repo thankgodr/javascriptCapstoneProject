@@ -6,9 +6,9 @@ import CommentsController from './js/controllers/commentsController.js';
 
 const shows = new ShowController([]);
 
-const start = 30;
+const start = 1;
 
-const end = 100;
+const end = 30;
 
 shows.fetchRange(start, end);
 
@@ -20,6 +20,11 @@ function commentPopupHandler() {
       button.addEventListener('click', () => {
         const commentPopup = new CommentsController(shows, button);
         commentPopup.render();
+
+        const postComment = document.querySelector('.commentPopup-button');
+        postComment.addEventListener('click', () => {
+          commentPopup.sendComment();
+        });
       });
     });
   } else {

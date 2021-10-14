@@ -25,9 +25,42 @@ export default class NetworkCall {
   getRequestNoCors = async (pathUrl = '') => {
     pathUrl.split('');
     return fetch(
-      'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/f2Nvc7oVyb6NlmnKre2d/likes',
+      'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/rVSJynvv1XHTg5vxDiSj/likes',
     )
       .then((response) => response.json())
       .catch((err) => err);
   };
+
+  getRequestWithOptions(queryParams) {
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow',
+    };
+
+    return fetch(this.baseUrl + queryParams, requestOptions)
+      .then((response) => response.json())
+      .catch((error) => error);
+  }
+
+  postRequestWithOptions(id, username, message) {
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+
+    const raw = JSON.stringify({
+      item_id: id,
+      username,
+      comment: message,
+    });
+
+    const requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow',
+    };
+
+    return fetch(this.baseUrl, requestOptions)
+      .then((response) => response.text())
+      .catch((error) => error);
+  }
 }

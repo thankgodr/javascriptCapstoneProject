@@ -32,37 +32,35 @@ export default class NetworkCall {
   };
 
   getRequestWithOptions(queryParams) {
-  const requestOptions = {
+    const requestOptions = {
       method: 'GET',
-      redirect: 'follow'
+      redirect: 'follow',
     };
 
     return fetch(this.baseUrl + queryParams, requestOptions)
-     .then(response => response.json())
-     .catch(error => console.log('error', error));
+      .then((response) => response.json())
+      .catch((error) => error);
   }
 
   postRequestWithOptions(id, username, message) {
-
     const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append('Content-Type', 'application/json');
 
     const raw = JSON.stringify({
-      "item_id": id,
-      "username": username,
-      "comment": message
+      item_id: id,
+      username,
+      comment: message,
     });
 
     const requestOptions = {
       method: 'POST',
       headers: myHeaders,
       body: raw,
-      redirect: 'follow'
-    }
+      redirect: 'follow',
+    };
 
     return fetch(this.baseUrl, requestOptions)
-      .then(response => response.text())
-      .catch(error => console.log('error', error));
+      .then((response) => response.text())
+      .catch((error) => error);
   }
-
 }

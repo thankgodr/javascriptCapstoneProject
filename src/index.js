@@ -20,12 +20,11 @@ function commentPopupHandler() {
       button.addEventListener('click', () => {
         const commentPopup = new CommentsController(shows, button);
         commentPopup.render();
-        
-        const postComment = document.querySelector(".commentPopup-button");
+
+        const postComment = document.querySelector('.commentPopup-button');
         postComment.addEventListener('click', () => {
           commentPopup.sendComment();
         });
-
       });
     });
   } else {

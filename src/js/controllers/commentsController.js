@@ -90,7 +90,7 @@ class CommentsPage {
           commentsBox.innerHTML += `${template}`;
         });
       }
-      commentsCount.innerHTML = `Comments: ${this.commentsArray.length}`;
+      commentsCount.innerHTML = `Comments: ${this.calculateCount()}`;
     }).catch((error) => {
       throw new Error(error);
     });
@@ -110,6 +110,10 @@ class CommentsPage {
           this.getAllComments();
         });
     }
+  }
+
+  calculateCount() {
+    return this.commentsArray.length;
   }
 }
 

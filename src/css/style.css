@@ -27,6 +27,16 @@ body {
   margin: 0 auto;
 }
 
+.show-image {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.show-name {
+  text-align: center;
+}
+
 .add-comment-container {
   display: flex;
   flex-direction: column;

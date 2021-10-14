@@ -6,14 +6,15 @@ class CommentsPage {
   constructor(shows, btn) {
     [this.show] = shows.moviesArray.filter((show) => show.id === +btn.id);
     this.networkCall = new NetworkCall(this.URL);
+    this.commentsArray = [];
   }
 
   render() {
     const template = `<div class="popup-section">
         <div class="header">
-          <img src="${this.show.image.medium}">
+          <img class="show-image" src="${this.show.image.medium}">
 
-          <h1>${this.show.name}</h1>
+          <h1 class="show-name">${this.show.name}</h1>
 
           <div class="show-data">
             <span class="show-status"><b>Status:</b> ${this.show.status}</span>
@@ -24,7 +25,7 @@ class CommentsPage {
         </div>
 
         <div class="comments-container">
-          <h2>Comments 10</h2>
+          <h2 id="comments-count"></h2>
 
           <div id="comments-box">
           
@@ -69,26 +70,27 @@ class CommentsPage {
 
   getAllComments() {
     const commentsBox = document.getElementById('comments-box');
-
+    const commentsCount = document.getElementById('comments-count');
     commentsBox.innerHTML = '';
 
     const response = this.networkCall.getRequestWithOptions(`?item_id=${this.show.id}`);
 
     response.then((result) => {
       if (result.length) {
-        const comments = result;
+        this.commentsArray = result;
 
-        comments.forEach((comment) => {
+        this.commentsArray.forEach((comment) => {
           const template = `
            <p>
             <span>${comment.creation_date} </span>
-            <span>${comment.username} </span>
+            <span><b>${comment.username}: </b></span>
             <span>${comment.comment} </span>
            </p>
            `;
           commentsBox.innerHTML += `${template}`;
         });
       }
+      commentsCount.innerHTML = `Comments: ${this.calculateCount()}`;
     }).catch((error) => {
       throw new Error(error);
     });
@@ -108,6 +110,10 @@ class CommentsPage {
           this.getAllComments();
         });
     }
+  }
+
+  calculateCount() {
+    return this.commentsArray.length;
   }
 }
 

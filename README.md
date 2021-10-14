@@ -83,7 +83,7 @@ To run the CSS linters type the following
 - GitHub: [Jose Abel Ramirez Frontany](https://github.com/jose-Abel)
 - Linkedin: [Jose Abel Ramirez Frontany](https://www.linkedin.com/in/jose-abel-r-7674a842/)
 
-### Author: Leonardo Lopes da Paz\*\*
+### Author: ThankGod Richard\*\*
 
 - Github: [ThankGod Richard](http://github.com/thankgodr)
 - Linkedin: [ThankGod Richard](http://linkedin.com/in/thankgodr)

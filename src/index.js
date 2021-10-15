@@ -12,7 +12,7 @@ const end = 200;
 
 shows.fetchRange(start, end);
 
-function commentPopupHandler() {
+const commentPopupHandler = () => {
   if (shows.moviesArray.length === end - start) {
     const allCommentButtons = document.querySelectorAll('.comment-button');
 
@@ -30,6 +30,6 @@ function commentPopupHandler() {
   } else {
     setTimeout(commentPopupHandler, 15);
   }
-}
+};
 
 commentPopupHandler();

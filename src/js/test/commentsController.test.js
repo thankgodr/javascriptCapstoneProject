@@ -1,5 +1,5 @@
-import CommentsPage from '../controllers/commentsController.js';
 import { JSDOM } from 'jsdom';
+import CommentsPage from './__mocks__/networkCommentHelper.js';
 
 describe('CommentsPage calculateCount method', () => {
   // Arrange
@@ -80,8 +80,7 @@ describe('CommentsPage calculateCount method', () => {
   button.id = '1';
   
   const commentsPage = new CommentsPage(shows, button);
-  commentsPage.URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3705SslJSJDGNoSC9NVG/comments';
-  
+
   const comment1 = {
     item_id: '1',
     username: 'Jose Abel',
@@ -100,7 +99,6 @@ describe('CommentsPage calculateCount method', () => {
     comment: "The best show is Spiderman"
   }
 
- 
   test('calculateCount function returns 0 since no comment added', () => {
     // Act
     const result = commentsPage.calculateCount();
@@ -109,23 +107,33 @@ describe('CommentsPage calculateCount method', () => {
     expect(result).toEqual(0);
   });
 
-  test('calculateCount returns 2 since 2 comments has been added', () => {
+  test('calculateCount returns 3 since 3 comments has been added', () => {
    // Act
    commentsPage.commentsArray.push(comment1);
    commentsPage.commentsArray.push(comment2);
- 
+   commentsPage.commentsArray.push(comment3);
+
    const result2 = commentsPage.calculateCount();
 
    // Assert
-   expect(result2).toEqual(2);
+   expect(result2).toEqual(3);
   });
 
-  test('calculateCount returns 3 after adding one more comment', () => {
-    commentsPage.commentsArray.push(comment3);
-    const result3 = commentsPage.calculateCount();
-
+  test('confirm that the comments are in the DOM', () => {
+    // Act
+     commentsPage.render();
+     const allComments = commentsPage.searchDOM();
     // Assert
-    expect(result3).toEqual(3);
+    expect(allComments.length).toEqual(3);
+
+  });
+
+  test('confirm that the comments are in the DOM', () => {
+    // Act
+     commentsPage.render();
+     const [firstComment] = commentsPage.searchDOM();
+    // Assert
+    expect(firstComment.innerHTML).toEqual('<b>Jose Abel: </b>');
 
   });
  });

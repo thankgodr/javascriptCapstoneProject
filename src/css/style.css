@@ -14,8 +14,17 @@ body {
   transform: translateX(-50%);
 }
 
+.nameDiv {
+  white-space: nowrap;
+}
+
 .card {
   min-width: 300px;
+}
+
+#totalShows {
+  position: absolute;
+  right: 0;
 }
 
 .card-img {

@@ -30,6 +30,6 @@ const commentPopupHandler = () => {
   } else {
     setTimeout(commentPopupHandler, 15);
   }
-}
+};
 
 commentPopupHandler();

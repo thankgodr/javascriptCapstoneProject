@@ -93,4 +93,4 @@ class CommentsPage {
 
 }
 
-module.exports = CommentsPage;
+export default CommentsPage;

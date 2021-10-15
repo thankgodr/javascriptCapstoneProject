@@ -1,5 +1,5 @@
 import { JSDOM } from 'jsdom';
-import CommentsPage from './__mocks__/networkCommentHelper.js';
+import CommentsPage from './__mocks__/mockCommentsController.js';
 
 describe('CommentsPage calculateCount method', () => {
   // Arrange

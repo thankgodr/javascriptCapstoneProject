@@ -82,7 +82,7 @@ class CommentsPage {
         this.commentsArray.forEach((comment) => {
           const template = `
            <p>
-            <span>${comment.creation_date} </span>
+            <span class="comments-date" >${comment.creation_date} </span>
             <span><b>${comment.username}: </b></span>
             <span>${comment.comment} </span>
            </p>

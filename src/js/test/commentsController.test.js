@@ -1,4 +1,4 @@
-import CommentsPage from './commentsController.js';
+import CommentsPage from '../controllers/commentsController.js';
 import { JSDOM } from 'jsdom';
 
 describe('CommentsPage calculateCount method', () => {
@@ -81,22 +81,51 @@ describe('CommentsPage calculateCount method', () => {
   
   const commentsPage = new CommentsPage(shows, button);
   commentsPage.URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3705SslJSJDGNoSC9NVG/comments';
+  
+  const comment1 = {
+    item_id: '1',
+    username: 'Jose Abel',
+    comment: 'Amazing show!'
+  }
 
-  commentsPage.render();
+  const comment2 = {
+    item_id: '2',
+    username: 'Bruce Wayne',
+    comment: 'I hated this show'
+  }
+
+  const comment3 = {
+    item_id: '3',
+    username: 'Peter Parker',
+    comment: "The best show is Spiderman"
+  }
+
  
-  const userInput = document.getElementById('user-element');
-  const commentInput = document.getElementById('comment-message');
-
-  userInput.value = "Jose Abel";  
-  commentInput.value = "Amazing show";
-
-  commentsPage.sendComment()
-
-  test('calculateCount function returns 1 count for 1 comment added', () => {
+  test('calculateCount function returns 0 since no comment added', () => {
     // Act
     const result = commentsPage.calculateCount();
+   
+    // Assert
+    expect(result).toEqual(0);
+  });
+
+  test('calculateCount returns 2 since 2 comments has been added', () => {
+   // Act
+   commentsPage.commentsArray.push(comment1);
+   commentsPage.commentsArray.push(comment2);
+ 
+   const result2 = commentsPage.calculateCount();
+
+   // Assert
+   expect(result2).toEqual(2);
+  });
+
+  test('calculateCount returns 3 after adding one more comment', () => {
+    commentsPage.commentsArray.push(comment3);
+    const result3 = commentsPage.calculateCount();
 
     // Assert
-    expect(result).toEqual(1);
+    expect(result3).toEqual(3);
+
   });
  });

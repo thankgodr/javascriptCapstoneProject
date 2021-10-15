@@ -2,7 +2,15 @@
 
 # Love4TV - Jose Abel Ramirez Frontany and ThankGod Richard
 
-<!-- ![screenshot](./app_screenshot.png) -->
+This project consist on the Microverse JavaScript capstone project where we build own web application based on 2 externals API. The API's we choose are https://www.tvmaze.com/api and the API provided by Microverse https://www.notion.so/microverse/Involvement-API-869e60b5ad104603aa6db59e08150270
+
+This webapp have 2 user interfaces since we are a team of 2 members, the interfaces are:
+
+- A home page showing a list of shows that can be "liked."
+- A popup window with more data about the selected show that a user can use to comment on it.
+
+![screenshot](./app_screenshot.png)
+![screenshot](./app_screenshot2.png)
 
 ## Built With
 
@@ -12,6 +20,10 @@
 - Webpack
 - Babel
 - Jest
+
+## API's
+- https://www.tvmaze.com/api
+- https://www.notion.so/microverse/Involvement-API-869e60b5ad104603aa6db59e08150270
 
 ## Getting Started
 

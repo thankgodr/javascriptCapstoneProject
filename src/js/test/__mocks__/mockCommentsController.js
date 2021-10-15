@@ -1,11 +1,8 @@
-import NetworkCall from '../helpers/networkcall.js';
-
 class CommentsPage {
-  URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/rVSJynvv1XHTg5vxDiSj/comments';
+  URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/3705SslJSJDGNoSC9NVG/comments'
 
   constructor(shows, btn) {
     [this.show] = shows.moviesArray.filter((show) => show.id === +btn.id);
-    this.networkCall = new NetworkCall(this.URL);
     this.commentsArray = [];
   }
 
@@ -65,56 +62,35 @@ class CommentsPage {
 
     genresDiv.appendChild(span);
 
-    this.getAllComments();
-  }
-
-  getAllComments() {
-    const commentsBox = document.getElementById('comments-box');
-    const commentsCount = document.getElementById('comments-count');
-    commentsBox.innerHTML = '';
-
-    const response = this.networkCall.getRequestWithOptions(`?item_id=${this.show.id}`);
-
-    response.then((result) => {
-      if (result.length) {
-        this.commentsArray = result;
-
-        this.commentsArray.forEach((comment) => {
-          const template = `
-           <p>
-            <span class="comments-date" >${comment.creation_date} </span>
-            <span class="comments-username"><b>${comment.username}: </b></span>
-            <span>${comment.comment} </span>
-           </p>
-           `;
-          commentsBox.innerHTML += `${template}`;
-        });
-      }
-      commentsCount.innerHTML = `Comments: ${this.calculateCount()}`;
-    }).catch((error) => {
-      throw new Error(error);
-    });
-  }
-
-  sendComment() {
-    const userInput = document.getElementById('user-element');
-    const commentInput = document.getElementById('comment-message');
-
-    if (userInput.value && commentInput.value) {
-      this.networkCall.postRequestWithOptions(this.show.id, userInput.value, commentInput.value)
-        .then(() => {
-          userInput.value = '';
-
-          commentInput.value = '';
-
-          this.getAllComments();
-        });
-    }
+    this.renderComments();
   }
 
   calculateCount() {
     return this.commentsArray.length;
   }
+
+  searchDOM() {
+    const allComments = document.querySelectorAll('.comments-username');
+    return allComments;
+  }
+
+  renderComments() {
+    const commentsBox = document.getElementById('comments-box');
+    const commentsCount = document.getElementById('comments-count');
+    commentsBox.innerHTML = '';
+
+    this.commentsArray.forEach((comment) => {
+      const template = `
+       <p>
+        <span class="comments-date" >${comment.creation_date} </span>
+        <span class="comments-username"><b>${comment.username}: </b></span>
+        <span>${comment.comment} </span>
+       </p>`;
+       commentsBox.innerHTML += `${template}`;
+     });
+      commentsCount.innerHTML = `Comments: ${this.calculateCount()}`;
+  }
+
 }
 
 export default CommentsPage;

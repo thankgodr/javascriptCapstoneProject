@@ -12,6 +12,10 @@ This webapp have 2 user interfaces since we are a team of 2 members, the interfa
 ![screenshot](./app_screenshot.png)
 ![screenshot](./app_screenshot2.png)
 
+## Video Recording
+
+https://www.loom.com/share/32bad3619e0549469968836a13923858
+
 ## Built With
 
 - HTML
@@ -22,6 +26,7 @@ This webapp have 2 user interfaces since we are a team of 2 members, the interfa
 - Jest
 
 ## API's
+
 - https://www.tvmaze.com/api
 - https://www.notion.so/microverse/Involvement-API-869e60b5ad104603aa6db59e08150270
 

@@ -97,7 +97,7 @@ export default class ShowController {
         const intVal = parseInt(obj.likes, 10);
         likeCount.innerHTML = `${intVal} ${keep}`;
       }
-    });
+    }).catch(err => err);
 
     document.getElementById('cardHolder').appendChild(divHolder);
     this.countShows();

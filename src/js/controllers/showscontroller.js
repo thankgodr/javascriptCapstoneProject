@@ -102,8 +102,10 @@ export default class ShowController {
     document.getElementById('cardHolder').appendChild(divHolder);
     this.countShows();
     const likeLiterner = document.getElementById(`likes${movie.id}`);
-    likeLiterner.addEventListener('click', () => {
-      this.sendLikes(movie.id, `likes${movie.id}`);
-    });
+    if (likeLiterner) {
+      likeLiterner.addEventListener('click', () => {
+        this.sendLikes(movie.id, `likes${movie.id}`);
+      });
+    }
   }
 }

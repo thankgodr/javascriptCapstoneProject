@@ -14,7 +14,7 @@ This webapp have 2 user interfaces since we are a team of 2 members, the interfa
 
 ## Video Recording
 
-https://www.loom.com/share/32bad3619e0549469968836a13923858
+https://www.loom.com/share/4acd28ed982742c793c7805d9f661d41
 
 ## Built With
 
@@ -62,7 +62,7 @@ To start the webpack-dev-server, run the following command:
 
 ### Live Demo Server
 
-<!-- - [live-version]() -->
+[live-version](https://love4tv.netlify.app/)
 
 ### Tests with Jest framework
 

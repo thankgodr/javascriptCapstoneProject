@@ -88,16 +88,20 @@ export default class ShowController {
           </div>
         </div>`;
     }
-    this.likesControllers.getLikes().then((res) => {
-      const obj = res.find((o) => o.item_id === movie.id);
-      if (obj != null) {
-        const likeCount = document.getElementById(`likes${movie.id}_count`);
-        const [, keep] = likeCount.innerHTML.split(' ');
+    //add likes
+    this.likesControllers
+      .getLikes()
+      .then((res) => {
+        const obj = res.find((o) => o.item_id === movie.id);
+        if (obj != null) {
+          const likeCount = document.getElementById(`likes${movie.id}_count`);
+          const [, keep] = likeCount.innerHTML.split(' ');
 
-        const intVal = parseInt(obj.likes, 10);
-        likeCount.innerHTML = `${intVal} ${keep}`;
-      }
-    }).catch((err) => err);
+          const intVal = parseInt(obj.likes, 10);
+          likeCount.innerHTML = `${intVal} ${keep}`;
+        }
+      })
+      .catch((err) => err);
 
     document.getElementById('cardHolder').appendChild(divHolder);
     this.countShows();
